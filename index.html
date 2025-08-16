@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Salary Manager</title>
+</head>
+<body>
+  <h2>Add Employee Salary</h2>
+  <form action="/save" method="post">
+    <input type="text" name="emp_id" placeholder="Employee ID" required><br>
+    <input type="text" name="name" placeholder="Name" required><br>
+    <input type="text" name="mobile" placeholder="Mobile"><br>
+    <input type="number" name="basic_salary" placeholder="Basic Salary" required><br>
+    <input type="number" name="allowance" placeholder="Allowance"><br>
+    <input type="number" name="deduction" placeholder="Deduction"><br>
+    <input type="number" name="month" placeholder="Month (1-12)" required><br>
+    <input type="number" name="year" placeholder="Year" required><br>
+    <button type="submit">Save</button>
+  </form>
+
+  <h2>Generate Report</h2>
+  <input type="number" id="month" placeholder="Month">
+  <input type="number" id="year" placeholder="Year">
+  <button onclick="downloadReport('excel')">Excel Report</button>
+  <button onclick="downloadReport('pdf')">PDF Report</button>
+
+  <script>
+    function downloadReport(type) {
+      const month = document.getElementById("month").value;
+      const year = document.getElementById("year").value;
+      if(type==="excel") window.location = `/report/excel/${year}/${month}`;
+      else window.location = `/report/pdf/${year}/${month}`;
+    }
+  </script>
+</body>
+</html>
