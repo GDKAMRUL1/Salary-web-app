@@ -1,0 +1,7 @@
+Flask
+mysql-connector-python
+openpyxl
+reportlab
+pillow
+pytesseract
+gunicorn
